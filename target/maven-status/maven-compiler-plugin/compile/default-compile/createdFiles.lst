@@ -1,0 +1,7 @@
+rest\interfaz\Operaciones.class
+commun\JsonSimple.class
+rest\interfaz\Peticiones.class
+rest\impl\Principal.class
+rest\impl\OperacionesImpl.class
+pojo\Respuesta.class
+rest\impl\PeticionesImpl.class
