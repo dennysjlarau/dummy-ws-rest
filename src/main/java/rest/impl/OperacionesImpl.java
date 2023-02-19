@@ -1,10 +1,8 @@
 package rest.impl;
 
-import commun.JsonSimple;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import pojo.Respuesta;
 import rest.interfaz.Operaciones;
 
 @Path("operaciones")

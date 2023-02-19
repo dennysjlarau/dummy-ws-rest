@@ -1,41 +1,27 @@
 package rest.impl;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import org.json.simple.JSONObject;
 
-import org.json.simple.parser.ParseException;
-
-import commun.JsonSimple;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import pojo.Respuesta;
-import rest.interfaz.Operaciones;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 import rest.interfaz.Peticiones;
+import utilitarios.JsonUtil;
 
 @Path("dummy")
 public class PeticionesImpl implements Peticiones {
 
+	private final static String PATH_ARCHIVO = "c:/var/dummy/";
+
 	@Override
-	@GET @Path("/{nombre}")
-	public String simular(@PathParam("nombre") String nombreArchivo) {
-		Respuesta res = null;
-		try {
-			res = JsonSimple.obtenerRespuestaArchivo(nombreArchivo);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return "error";
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return "error";
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return "error";
-		}
-		return res.getCuerpo();
+	@GET
+	@Path("/{nombre}/{etiqueta}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String simular(@PathParam("nombre") String nombreArchivo, @PathParam("etiqueta") String etiqueta) {
+		JSONObject jso = JsonUtil.leerArchivo(PATH_ARCHIVO + nombreArchivo);
+		return JsonUtil.obtenerArreglo(jso, etiqueta);
 	}
 
 }

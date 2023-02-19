@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+    	<!-- Console appender configuration -->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+        </Console>
+        <File name="File" fileName="c:/var/5/log4j2.log" append="true">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level - %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+    	<!-- Root logger referring to console appender -->
+        <Root level="info" additivity="false">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>
