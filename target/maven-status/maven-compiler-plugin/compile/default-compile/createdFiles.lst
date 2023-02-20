@@ -2,4 +2,5 @@ rest\interfaz\Operaciones.class
 rest\interfaz\Peticiones.class
 rest\impl\Principal.class
 rest\impl\OperacionesImpl.class
+comun\Constantes.class
 rest\impl\PeticionesImpl.class
